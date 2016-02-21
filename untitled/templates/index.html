@@ -47,8 +47,9 @@
                         <h1>Лента</h1>
                         {% for post in posts_list %}
                             <h3><a href="{% url "see_post" id=post.id   %}"> {{ post.title }} </a></h3>
-                            <p>It is the strongest storm on record to make a direct hit on the main islands,
-                                which are home to a majority of Fiji's 900,000 people and are smaller than Connecticut.</p>
+                            {% if post.image %}
+                                <span class="image fit"> <img src="{{ post.image.url }}"> </span>
+                            {% endif %}
                             <ul class="actions">
                                 <li><a href="#one" class="button scrolly">Learn more</a></li>
                             </ul>

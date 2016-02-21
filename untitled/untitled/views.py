@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from .models import UserPage
 from .forms import MakePostForm
 
@@ -8,7 +8,7 @@ from .forms import MakePostForm
 # create form for a new post
 
 def create_post(request):
-    form = MakePostForm(request.POST or None)
+    form = MakePostForm(request.POST or None, request.FILES or None)
     if form.is_valid():
         post = form.save(commit=False)
         post.save()

@@ -45,8 +45,10 @@
                 <section id="intro" class="wrapper style1 fullscreen fade-up">
                     <div class="inner">
                         <h2>{{ details_post.title }}</h2>
+                        {% if details_post.image %}
+                            <span class="image fit"> <img src="{{ details_post.image.url }}" class="img-responsive"> </span>
+                        {% endif %}
                         <h5>{{ details_post.time_created }}</h5>
-                        <h5>{{ details_post.time_updated }}</h5>
                     </div>
                 </section>
 			</div>

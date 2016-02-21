@@ -44,7 +44,7 @@
 				<!-- Intro -->
                 <section id="intro" class="wrapper style1 fullscreen fade-up">
                     <div class="inner">
-                        <form method="post"> {% csrf_token %}
+                        <form method="post" enctype="multipart/form-data"> {% csrf_token %}
                             <a>{{ form.as_p }}</a>
                             <input type="submit" value="create post">
                         </form>
