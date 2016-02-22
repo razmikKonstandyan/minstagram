@@ -1,3 +1,4 @@
+from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import UserPage
 from .forms import MakePostForm
@@ -36,3 +37,13 @@ def see_post(request, id=None):
 
 def see_about(request):
     return render(request, "generic.html", {})
+
+
+def delete_post(request, id=None):
+    post = get_object_or_404(UserPage, id)
+    post.delete()
+    return redirect("")
+
+
+def test(request):
+    return HttpResponse("asd")
