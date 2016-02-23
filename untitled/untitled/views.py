@@ -6,7 +6,26 @@ from .forms import MakePostForm
 
 # create my first view
 
-# create form for a new post
+
+def go_home(request):
+    query = UserPage.objects.all().order_by("-time_created")
+    context_data = {
+        "posts_list": query,
+    }
+    return render(request, "index.html", context_data)
+
+
+def see_about(request):
+    return render(request, "generic.html", {})
+
+
+def see_post(request, id=None):
+    details_post = get_object_or_404(UserPage, id=id)
+    context_data = {
+        "details_post": details_post,
+    }
+    return render(request, "post.html", context_data)
+
 
 def create_post(request):
     form = MakePostForm(request.POST or None, request.FILES or None)
@@ -17,22 +36,6 @@ def create_post(request):
         "form": form
     }
     return render(request, "create_post.html", context_data)
-
-
-def go_home(request):
-    query = UserPage.objects.all()
-    context_data = {
-        "posts_list": query,
-    }
-    return render(request, "index.html", context_data)
-
-
-def see_post(request, id=None):
-    details_post = get_object_or_404(UserPage, id=id)
-    context_data = {
-        "details_post": details_post,
-    }
-    return render(request, "post.html", context_data)
 
 
 def edit_post(request, id=None):
@@ -48,14 +51,10 @@ def edit_post(request, id=None):
     return render(request, "edit_post.html", context_data)
 
 
-def see_about(request):
-    return render(request, "generic.html", {})
-
-
 def delete_post(request, id=None):
-    post = get_object_or_404(UserPage, id)
+    post = get_object_or_404(UserPage, id=id)
     post.delete()
-    return redirect("")
+    return redirect("go_home")
 
 
 def test(request):
