@@ -12,14 +12,13 @@
 
 		<!-- Header -->
 			<header id="header">
-				<a href="../home" class="title">Minstagram</a>
+				<a href="{% url "go_home" %}" class="title">Minstagram</a>
 				<nav>
 					<ul>
-						<li><a href="../home">Home</a></li>
-                        <li><a href="../new">Add</a></li>
+                        <li><a href="{% url "go_home" %}">Home</a></li>
+                        <li><a href="{% url "create_post" %}" class="active">Add</a></li>
                         <li><a href="#one">Friends</a></li>
-                        <li><a href="#intro">Change photo</a></li>
-						<li><a href="../about" class="active">About</a></li>
+						<li><a href="{% url "about" %}">About</a></li>
 						<li><a href="#">Log out</a></li>
 					</ul>
 				</nav>

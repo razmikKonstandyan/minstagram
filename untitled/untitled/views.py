@@ -30,9 +30,22 @@ def go_home(request):
 def see_post(request, id=None):
     details_post = get_object_or_404(UserPage, id=id)
     context_data = {
-        "details_post": details_post
+        "details_post": details_post,
     }
     return render(request, "post.html", context_data)
+
+
+def edit_post(request, id=None):
+    edt_post = get_object_or_404(UserPage, id=id)
+    form = MakePostForm(request.POST or None, request.FILES or None, instance=edt_post)
+    if form.is_valid():
+        edt_post = form.save(commit=False)
+        edt_post.save()
+    context_data = {
+        "upd_post": edt_post,
+        "form": form,
+    }
+    return render(request, "edit_post.html", context_data)
 
 
 def see_about(request):

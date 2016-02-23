@@ -25,6 +25,7 @@ urlpatterns = [
     url(r'home/$', views.go_home, name='go_home'),
     url(r'about/$', views.see_about, name='about'),
     url(r'^home/(?P<id>\d+)/$', views.see_post, name='see_post'),
+    url(r'^edit/(?P<id>\d+)/$', views.edit_post, name='edit_post'),
     url(r'^delete/(?P<id>\d+)/$', views.delete_post, name='delete_post'),
     url(r'^new/$', views.create_post, name='create_post'),
     url(r'^test/$', views.test, name='test'),
