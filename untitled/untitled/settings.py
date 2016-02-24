@@ -38,7 +38,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -107,7 +106,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/1.9/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'en-'
 
 TIME_ZONE = 'Europe/Moscow'
 
@@ -132,4 +131,5 @@ STATICFILES_DIRS = [
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
-
+# DISQUS_API_KEY = "ci8pn817J7yFUc1R1j0E7D74yhuRqztCD3dwBhGDwJIlJdIHmPX7thItfc4SuEUZ"
+# DISQUS_WEBSITE_SHORTNAME = 'minstagram'
