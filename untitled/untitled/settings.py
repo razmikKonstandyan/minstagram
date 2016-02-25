@@ -132,4 +132,4 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 # DISQUS_API_KEY = "ci8pn817J7yFUc1R1j0E7D74yhuRqztCD3dwBhGDwJIlJdIHmPX7thItfc4SuEUZ"
-# DISQUS_WEBSITE_SHORTNAME = 'minstagram'
+# DISQUS_WEBSITE_SHORTNAME = 'migrations'
