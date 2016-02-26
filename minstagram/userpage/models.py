@@ -19,8 +19,11 @@ class UserPageData(models.Model):
 
     def __unicode__(self):
         return self.title
+        
+    def __str__(self):
+        return self.title
 
-
+        
 @receiver(models.signals.post_delete, sender=UserPageData)
 def auto_delete_file_on_delete(sender, instance, **kwargs):
     if instance.image:

@@ -12,33 +12,17 @@
 
         <!-- Header -->
     		<header id="header">
-				<a href="{% url "user_page-go_home" %}" class="title">Minstagram</a>
+				<a href="{% url "minstagram:home" %}" class="title">Minstagram</a>
 				<nav>
 					<ul>
-                        <li><a href="{% url "user_page-go_home" %}">Home</a></li>
-                        <li><a href="{% url "user_page-create_post" %}" class="active">Add</a></li>
+                        <li><a href="{% url "minstagram:home" %}">Home</a></li>
+                        <li><a href="{% url "minstagram:create_post" %}" class="active">Add</a></li>
                         <li><a href="#one">Friends</a></li>
-						<li><a href="{% url "user_page-about" %}">About</a></li>
+						<li><a href="{% url "minstagram:about" %}">About</a></li>
 						<li><a href="#">Log out</a></li>
                     </ul>
 				</nav>
 			</header>
-
-		<!-- Sidebar
-			<section id="sidebar">
-				<div class="inner">
-                    <span class="image fit"><img src="../static/images/pic_profile.jpg" alt="" /></span>
-					<nav>
-						<ul>
-							<li><a href="#intro">Сменить фото</a></li>
-							<li><a href="#one">Друзья</a></li>
-							<li><a href="../new">Добавить пост</a></li>
-						</ul>
-					</nav>
-				</div>
-			</section>
--->
-
 
 		<!-- Wrapper -->
 			<div id="wrapper">

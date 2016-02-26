@@ -13,33 +13,17 @@
 
         <!-- Header -->
     		<header id="header">
-				<a href="{% url "user_page-go_home" %}" class="title">Minstagram</a>
+				<a href="{% url "minstagram:home" %}" class="title">Minstagram</a>
 				<nav>
 					<ul>
-                        <li><a href="{% url "user_page-go_home" %}" class="active">Home</a></li>
-                        <li><a href="{% url "user_page-create_post" %}">Add</a></li>
+                        <li><a href="{% url "minstagram:home" %}" class="active">Home</a></li>
+                        <li><a href="{% url "minstagram:create_post" %}">Add</a></li>
                         <li><a href="#one">Friends</a></li>
-						<li><a href="{% url "user_page-about" %}">About</a></li>
+						<li><a href="{% url "minstagram:about" %}">About</a></li>
 						<li><a href="#">Log out</a></li>
 					</ul>
 				</nav>
 			</header>
-
-		<!-- Sidebar
-			<section id="sidebar">
-				<div class="inner">
-                    <span class="image fit"><img src="../static/images/pic_profile.jpg" alt="" /></span>
-					<nav>
-						<ul>
-							<li><a href="#intro">Change photo</a></li>
-							<li><a href="#one">Friends</a></li>
-							<li><a href="../new">Add</a></li>
-						</ul>
-					</nav>
-				</div>
-			</section>
-            -->
-
 
 		<!-- Wrapper -->
 			<div id="wrapper">
@@ -49,19 +33,14 @@
                     <div class="inner">
                         <h1>Posts</h1>
                         {% for post in posts_list %}
-                            <h3><a href="{% url "user_page-see_post" id=post.id   %}"> {{ post.title }} </a></h3>
+                            <h3><a href="{% url "minstagram:see_post" id=post.id   %}"> {{ post.title }} </a></h3>
                             {% if post.image %}
-                                <span class="image fit"><a href="{% url "user_page-see_post" id=post.id   %}">
+                                <span class="image fit"><a href="{% url "minstagram:see_post" id=post.id   %}">
                                     <img src="{{ post.image.url }}"></a> </span>
                             {% endif %}
-{#                            <p>#}
-{#                                {% load disqus_tags %}#}
-{#                                {% disqus_dev %}#}
-{#                                {% disqus_show_comments % }#}
-{#                            </p>#}
                             <ul class="actions">
-                                <li><a href="{% url "user_page-edit_post" id=post.id %}" class="button scrolly">edit</a></li>
-                                <li><a href="{% url "user_page-delete_post" id=post.id %}" class="button scrolly">delete</a></li>
+                                <li><a href="{% url "minstagram:edit_post" id=post.id %}" class="button scrolly">edit</a></li>
+                                <li><a href="{% url "minstagram:delete_post" id=post.id %}" class="button scrolly">delete</a></li>
                             </ul>
                             <!-- <ul class="actions">
                                 <li><a href="#one" class="button scrolly">Like</a></li>

@@ -12,11 +12,11 @@ def go_home(request):
     context_data = {
         "posts_list": query,
     }
-    return render(request, "index.html", context_data)
+    return render(request, "minstagram/index.html", context_data)
 
 
 def see_about(request):
-    return render(request, "generic.html", {})
+    return render(request, "minstagram/generic.html", {})
 
 
 def see_post(request, id=None):
@@ -24,7 +24,7 @@ def see_post(request, id=None):
     context_data = {
         "details_post": details_post,
     }
-    return render(request, "post.html", context_data)
+    return render(request, "minstagram/post.html", context_data)
 
 
 def create_post(request):
@@ -35,7 +35,7 @@ def create_post(request):
     context_data = {
         "form": form
     }
-    return render(request, "create_post.html", context_data)
+    return render(request, "minstagram/create_post.html", context_data)
 
 
 def edit_post(request, id=None):
@@ -48,13 +48,13 @@ def edit_post(request, id=None):
         "upd_post": edt_post,
         "form": form,
     }
-    return render(request, "edit_post.html", context_data)
+    return render(request, "minstagram/edit_post.html", context_data)
 
 
 def delete_post(request, id=None):
     post = get_object_or_404(UserPageData, id=id)
     post.delete()
-    return redirect("user_page-go_home")
+    return redirect("minstagram:home")
 
 
 def test(request):
