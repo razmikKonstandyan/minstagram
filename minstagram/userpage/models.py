@@ -2,7 +2,7 @@ import os
 
 from django.db import models
 from django.dispatch import receiver
-from django.utils.translation import ugettext_lazy as _
+from django.contrib.auth.models import User
 
 
 # user db
@@ -16,6 +16,8 @@ class UserPageData(models.Model):
     image = models.ImageField(null=True, blank=True)
     time_created = models.DateTimeField(auto_now=True, auto_now_add=False)
     time_updated = models.DateTimeField(auto_now=False, auto_now_add=True)
+
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __unicode__(self):
         return self.title

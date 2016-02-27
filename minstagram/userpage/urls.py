@@ -19,7 +19,7 @@ from django.conf.urls.static import static
 
 from . import views
 
-app_name = 'minstagram'
+app_name = 'userpage'
 urlpatterns = [
     url(r'home/$', views.go_home, name='home'),
     url(r'about/$', views.see_about, name='about'),
@@ -27,7 +27,10 @@ urlpatterns = [
     url(r'^(?:edit-(?P<id>\d+)/)$', views.edit_post, name='edit_post'),
     url(r'^delete/(?P<id>\d+)/$', views.delete_post, name='delete_post'),
     url(r'^new/$', views.create_post, name='create_post'),
-    url(r'^test/$', views.test, name='test'),
+    url(r'^friends/$', views.see_friends, name='see_friends'),
+    url(r'^search/$', views.find_friends, name='find_friends'),
+    url(r'^search/(?P<id>\d+)/$', views.see_user, name='see_user'),
+    url(r'^search/(?P<user_id>\d+)/(?P<post_id>\d+)/$', views.see_user_post, name='see_user_post'),
 ]
 
 if settings.DEBUG:

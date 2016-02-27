@@ -10,5 +10,5 @@ class MakePostForm(forms.ModelForm):
         model = UserPageData
         fields = [
             "title",
-            "image"
+            "image",
         ]

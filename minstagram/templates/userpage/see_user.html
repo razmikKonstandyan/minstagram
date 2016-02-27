@@ -1,0 +1,70 @@
+<!DOCTYPE HTML>
+
+
+<html>
+	<head>
+		<title>Home</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="../../static/css/main.css" />
+	</head>
+	<body>
+
+
+        <!-- Header -->
+    		<header id="header">
+                <a href="{% url "userpage:home" %}" class="title">Minstagram</a>
+				<nav>
+					<ul>
+                        <li><a href="{% url "userpage:home" %}">Home</a></li>
+                        <li><a href="{% url "userpage:create_post" %}">Add Post</a></li>
+                        <li><a href="#one">Friends</a></li>
+                        <li><a href="{% url "userpage:find_friends" %}">Search</a>
+						<li><a href="{% url "userpage:about" %}">About</a></li>
+						<li><a href="#">Log out</a></li>
+					</ul>
+				</nav>
+			</header>
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Intro -->
+                <section id="intro" class="wrapper style1 fullscreen fade-up">
+                    <div class="inner">
+                        <h1>Posts</h1>
+                        {% for post in posts_list %}
+                            <h3><a href="{% url "userpage:see_user_post" user_id=user_identification post_id=post.id %}"> {{ post.title }} </a></h3>
+                            {% if post.image %}
+                                <span class="image fit"><a href="{% url "userpage:see_post" id=post.id %}">
+                                    <img src="{{ post.image.url }}"></a> </span>
+                            {% endif %}
+                            <!-- <ul class="actions">
+                                <li><a href="#one" class="button scrolly">Like</a></li>
+                            </ul>-->
+                            <h4>{{ post.time_created }}</h4>
+                            <hr>
+                        {% endfor %}
+                    </div>
+                </section>
+			</div>
+
+		<!-- Footer -->
+			<footer id="footer" class="wrapper alt">
+				<div class="inner">
+					<ul class="menu">
+						<li>&copy; Minstagram. All rights reserved.</li>
+					</ul>
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="../../static/js/jquery.min.js"></script>
+			<script src="../../static/js/jquery.scrollex.min.js"></script>
+			<script src="../../static/js/jquery.scrolly.min.js"></script>
+			<script src="../../static/js/skel.min.js"></script>
+			<script src="../../static/js/util.js"></script>
+			<script src="../../static/js/main.js"></script>
+
+	</body>
+</html>

@@ -13,13 +13,14 @@
 
         <!-- Header -->
     		<header id="header">
-				<a href="{% url "minstagram:home" %}" class="title">Minstagram</a>
+                <a href="{% url "userpage:home" %}" class="title">Minstagram</a>
 				<nav>
 					<ul>
-                        <li><a href="{% url "minstagram:home" %}" class="active">Home</a></li>
-                        <li><a href="{% url "minstagram:create_post" %}">Add</a></li>
+                        <li><a href="{% url "userpage:home" %}" class="active">Home</a></li>
+                        <li><a href="{% url "userpage:create_post" %}">Add Post</a></li>
                         <li><a href="#one">Friends</a></li>
-						<li><a href="{% url "minstagram:about" %}">About</a></li>
+                        <li><a href="{% url "userpage:find_friends" %}">Search</a>
+						<li><a href="{% url "userpage:about" %}">About</a></li>
 						<li><a href="#">Log out</a></li>
 					</ul>
 				</nav>
@@ -33,14 +34,14 @@
                     <div class="inner">
                         <h1>Posts</h1>
                         {% for post in posts_list %}
-                            <h3><a href="{% url "minstagram:see_post" id=post.id   %}"> {{ post.title }} </a></h3>
+                            <h3><a href="{% url "userpage:see_post" id=post.id   %}"> {{ post.title }} </a></h3>
                             {% if post.image %}
-                                <span class="image fit"><a href="{% url "minstagram:see_post" id=post.id   %}">
+                                <span class="image fit"><a href="{% url "userpage:see_post" id=post.id   %}">
                                     <img src="{{ post.image.url }}"></a> </span>
                             {% endif %}
                             <ul class="actions">
-                                <li><a href="{% url "minstagram:edit_post" id=post.id %}" class="button scrolly">edit</a></li>
-                                <li><a href="{% url "minstagram:delete_post" id=post.id %}" class="button scrolly">delete</a></li>
+                                <li><a href="{% url "userpage:edit_post" id=post.id %}" class="button scrolly">edit</a></li>
+                                <li><a href="{% url "userpage:delete_post" id=post.id %}" class="button scrolly">delete</a></li>
                             </ul>
                             <!-- <ul class="actions">
                                 <li><a href="#one" class="button scrolly">Like</a></li>

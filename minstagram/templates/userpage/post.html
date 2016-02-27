@@ -22,13 +22,14 @@
 
         <!-- Header -->
     		<header id="header">
-				<a href="{% url "minstagram:home" %}" class="title">Minstagram</a>
+				<a href="{% url "userpage:home" %}" class="title">Minstagram</a>
 				<nav>
 					<ul>
-                        <li><a href="{% url "minstagram:home" %}">Home</a></li>
-                        <li><a href="{% url "minstagram:create_post" %}">Add</a></li>
+                        <li><a href="{% url "userpage:home" %}">Home</a></li>
+                        <li><a href="{% url "userpage:create_post" %}">Add Post</a></li>
                         <li><a href="#one">Friends</a></li>
-						<li><a href="{% url "minstagram:about" %}">About</a></li>
+                        <li><a href="{% url "userpage:find_friends" %}">Search</a>
+						<li><a href="{% url "userpage:about" %}">About</a></li>
 						<li><a href="#">Log out</a></li>
 					</ul>
 				</nav>
