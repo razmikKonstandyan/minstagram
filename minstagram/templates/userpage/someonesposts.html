@@ -1,0 +1,28 @@
+{% extends "loginedin.html" %}
+{% block title %}
+    <title>My subs posts</title>
+{% endblock %}
+{% block content %}
+
+    <!-- Wrapper -->
+        <div id="wrapper">
+            <!-- Intro -->
+            <section id="intro" class="wrapper style1 fullscreen fade-up">
+                <div class="inner">
+                    <h1>Posts</h1>
+                    {% for post in posts_list %}
+                        <h3><a href="{% url "minstagram:see_user_post" user_id=user_identification post_id=post.id %}"> {{ post.title }} </a></h3>
+                        {% if post.image %}
+                            <span class="image fit"><a href="{% url "minstagram:see_post" id=post.id %}">
+                                <img src="{{ post.image.url }}"></a> </span>
+                        {% endif %}
+                        <!-- <ul class="actions">
+                            <li><a href="#one" class="button scrolly">Like</a></li>
+                        </ul>-->
+                        <h4>{{ post.time_created }}</h4>
+                    {% endfor %}
+                </div>
+            </section>
+        </div>
+
+{% endblock %}

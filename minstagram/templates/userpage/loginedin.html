@@ -4,9 +4,10 @@
     <a href="{% url "minstagram:home" %}" class="title">Minstagram</a>
     <nav>
         <ul>
-            <li><a href="{% url "minstagram:home" %}" class="active">Home</a></li>
+            <li><a href="{% url "minstagram:home" %}">Home</a></li>
             <li><a href="{% url "minstagram:create_post" %}">Add</a></li>
             <li><a href="#one">Friends</a></li>
+            <li><a href="{% url "minstagram:find_friends" %}">Search</a>
             <li><a href="{% url "minstagram:about" %}">About</a></li>
             <li><a href="{% url "minstagram:logout" %}">Logout</a></li>
         </ul>

@@ -25,7 +25,7 @@ SECRET_KEY = 't0*@sw!^n%r!&2)nf=x_qk)=vs#!r@tq8knn_pc=0g7&93txqe'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = '/home/'
 
 ALLOWED_HOSTS = [
     #'www.minstagram.com'
@@ -59,7 +59,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [os.path.join(BASE_DIR, 'templates'),
-                 os.path.join(BASE_DIR, 'templates/minstagram')
+                 os.path.join(BASE_DIR, 'templates/userpage')
                  ],
         'APP_DIRS': True,
         'OPTIONS': {

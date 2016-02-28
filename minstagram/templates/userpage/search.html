@@ -1,0 +1,23 @@
+{% extends "loginedin.html" %}
+{% block title %}
+    <title>My subs posts</title>
+{% endblock %}
+{% block content %}
+
+    <!-- Wrapper -->
+        <div id="wrapper">
+            <!-- Intro -->
+            <section id="intro" class="wrapper style1 fullscreen fade-up">
+                <div class="inner">
+                    <h1>People</h1>
+                    {% for user in users_list %}
+                        <h3><a href="{% url "minstagram:see_user" id=user.id %}"> {{ user.username }} {{ user.last_name }}</a></h3>
+                        <!-- <ul class="actions">
+                            <li><a href="#one" class="button scrolly">Like</a></li>
+                        </ul>-->
+                    {% endfor %}
+                </div>
+            </section>
+        </div>
+
+{% endblock %}
