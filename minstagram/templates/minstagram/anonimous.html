@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block header %}
+<header id="header">
+    <a href="{% url "minstagram:home" %}" class="title">Minstagram</a>
+    <nav>
+        <ul>
+            <li><a href="{% url "minstagram:login" %}" class="active">Login</a></li>
+            <li><a href="{% url "minstagram:register" %}" class="active">Register</a></li>
+        </ul>
+    </nav>
+</header>
+{% endblock %}

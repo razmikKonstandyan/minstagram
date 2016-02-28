@@ -1,59 +1,17 @@
-<!DOCTYPE HTML>
-
-
-<html>
-	<head>
-		<title>New Post</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="stylesheet" href="../static/css/main.css" />
-	</head>
-	<body>
-
-        <!-- Header -->
-    		<header id="header">
-				<a href="{% url "minstagram:home" %}" class="title">Minstagram</a>
-				<nav>
-					<ul>
-                        <li><a href="{% url "minstagram:home" %}">Home</a></li>
-                        <li><a href="{% url "minstagram:create_post" %}" class="active">Add</a></li>
-                        <li><a href="#one">Friends</a></li>
-						<li><a href="{% url "minstagram:about" %}">About</a></li>
-						<li><a href="#">Log out</a></li>
-                    </ul>
-				</nav>
-			</header>
-
-		<!-- Wrapper -->
-			<div id="wrapper">
-
-				<!-- Intro -->
-                <section id="intro" class="wrapper style1 fullscreen fade-up">
-                    <div class="inner">
-                        <form method="post" enctype="multipart/form-data"> {% csrf_token %}
-                            <a>{{ form.as_p }}</a>
-                            <input type="submit" value="create post">
-                        </form>
-                    </div>
-                </section>
-			</div>
-
-		<!-- Footer -->
-			<footer id="footer" class="wrapper alt">
-				<div class="inner">
-					<ul class="menu">
-						<li>&copy; Minstagram. All rights reserved.</li>
-					</ul>
-				</div>
-			</footer>
-
-		<!-- Scripts -->
-			<script src="../static/js/jquery.min.js"></script>
-			<script src="../static/js/jquery.scrollex.min.js"></script>
-			<script src="../static/js/jquery.scrolly.min.js"></script>
-			<script src="../static/js/skel.min.js"></script>
-			<script src="../static/js/util.js"></script>
-			<script src="../static/js/main.js"></script>
-
-	</body>
-</html>
+{% extends "loginedin.html" %}
+{% block title %}
+    <title>Create post</title>
+{% endblock %}
+{% block content %}
+    <div id="wrapper">
+        <!-- Intro -->
+        <section id="intro" class="wrapper style1 fullscreen fade-up">
+            <div class="inner">
+                <form method="post" enctype="multipart/form-data"> {% csrf_token %}
+                    <a>{{ form.as_p }}</a>
+                    <input type="submit" value="create post">
+                </form>
+            </div>
+        </section>
+    </div>
+{% endblock %}

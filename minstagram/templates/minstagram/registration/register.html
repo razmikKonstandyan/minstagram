@@ -1,0 +1,17 @@
+{% extends "anonimous.html" %}
+{% block title %}
+    <title>Register</title>
+{% endblock %}
+{% block content %}
+  <h1>User registration</h1>
+  <form action="." method="POST">
+  {% csrf_token %}
+    <label for="id_username">Login:</label> {{ form.username }}
+
+    <label for="id_password1">Password:</label> {{ form.password1 }}
+
+    <label for="id_password2">Password (again):</label> {{ form.password2 }}
+
+    <input type="submit" value="Register" />
+  </form>
+{% endblock %}
