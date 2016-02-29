@@ -13,7 +13,7 @@ class UserPageData(models.Model):
         db_table = 'user_page_data'
 
     title = models.CharField(max_length=100)
-    image = models.ImageField(null=True, blank=True)
+    image = models.ImageField(null=True)
     time_created = models.DateTimeField(auto_now=True, auto_now_add=False)
     time_updated = models.DateTimeField(auto_now=False, auto_now_add=True)
 
