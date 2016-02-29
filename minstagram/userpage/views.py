@@ -147,6 +147,7 @@ def unfollow(request, id=None):
     return redirect("minstagram:find_friends")
 
 
+@login_required
 def edit_info(request):
     user_profile_data = UserProfileData.objects.get(user=request.user)
     profile_data = UserProfileData.objects.filter(user=request.user)
