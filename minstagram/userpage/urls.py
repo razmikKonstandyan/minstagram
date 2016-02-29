@@ -34,6 +34,8 @@ urlpatterns = [
     url(r'^home/', views.go_home, name='home'),
     url(r'^friends/$', views.see_friends, name='see_friends'),
     url(r'^search/$', views.find_friends, name='find_friends'),
+    url(r'^search/follow/(?P<id>\d+)/$', views.follow, name='follow'),
+    url(r'^search/unfollow/(?P<id>\d+)/$', views.unfollow, name='unfollow'),
     url(r'^search/(?P<id>\d+)/$', views.see_user, name='see_user'),
     url(r'^search/(?P<user_id>\d+)/(?P<post_id>\d+)/$', views.see_user_post, name='see_user_post'),
 ]

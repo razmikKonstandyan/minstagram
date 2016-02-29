@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import UserPageData
+from .models import UserPageData, UserProfileData
 
 
 class CustomModelAdmin(admin.ModelAdmin):
@@ -11,3 +11,4 @@ class CustomModelAdmin(admin.ModelAdmin):
         model = UserPageData
 
 admin.site.register(UserPageData, CustomModelAdmin)
+admin.site.register(UserProfileData)

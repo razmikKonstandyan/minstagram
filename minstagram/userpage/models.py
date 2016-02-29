@@ -9,7 +9,7 @@ from django.contrib.auth.models import User
 
 
 class UserPageData(models.Model):
-    class Meta():
+    class Meta:
         db_table = 'user_page_data'
 
     title = models.CharField(max_length=100)
@@ -21,11 +21,23 @@ class UserPageData(models.Model):
 
     def __unicode__(self):
         return self.title
-        
+
     def __str__(self):
         return self.title
 
-        
+
+class UserProfileData(models.Model):
+    class Meta:
+        db_table = 'user_profile_data'
+
+    status = models.CharField(max_length=200, null=True, blank=True)
+    avatar = models.ImageField(null=True, blank=True)
+    age = models.IntegerField(null=True, blank=True)
+
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    subscriptions = models.ManyToManyField(User, related_name="followed", blank=True)
+
+
 @receiver(models.signals.post_delete, sender=UserPageData)
 def auto_delete_file_on_delete(sender, instance, **kwargs):
     if instance.image:

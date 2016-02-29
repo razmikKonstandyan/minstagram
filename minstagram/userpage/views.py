@@ -1,7 +1,7 @@
 from django.contrib.auth.models import User
 from django.db.models import Q
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import UserPageData
+from .models import UserPageData, UserProfileData
 from .forms import MakePostForm
 # from .forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
@@ -15,11 +15,13 @@ from django.contrib.auth.forms import (
 def go_home(request):
     if request.user.is_anonymous():
         return render(request, "userpage/index.html")
-    query = UserPageData.objects.filter(user=request.user).order_by("-time_created")
+    posts_list = UserPageData.objects.filter(user=request.user).order_by("-time_created")
+    profile_data = UserProfileData.objects.filter(user=request.user)
     context_data = {
-        "posts_list": query,
+        "posts_list": posts_list,
+        "profile_data": profile_data,
     }
-    return render(request, "userpage/mysubpost.html", context_data)
+    return render(request, "userpage/myposts.html", context_data)
 
 
 def regok(request):
@@ -47,7 +49,7 @@ def see_post(request, id=None):
     context_data = {
         "details_post": details_post,
     }
-    return render(request, "userpage/myposts.html", context_data)
+    return render(request, "userpage/mysubpost.html", context_data)
 
 
 @login_required
@@ -86,14 +88,19 @@ def delete_post(request, id=None):
 
 @login_required
 def see_friends(request):
-    return HttpResponse("jkh")
+    context_data = {
+        "following": request.user.userprofiledata.subscriptions.all(),
+    }
+    return render(request, "userpage/friends.html", context_data)
 
 
 @login_required
 def find_friends(request):
-    query = User.objects.filter(~Q(id=request.user.id))
+    profile_data = UserProfileData.objects.filter(~Q(user=request.user))
+    following = request.user.userprofiledata.subscriptions.all()
     context_data = {
-        "users_list": query
+        "profile_data": profile_data,
+        "following": following,
     }
     return render(request, "userpage/search.html", context_data)
 
@@ -116,3 +123,17 @@ def see_user_post(request, user_id=None, post_id=None):
         "details_post": details_post,
     }
     return render(request, "userpage/someonessubpost.html", context_data)
+
+
+@login_required
+def follow(request, id=None):
+    user = User.objects.get(id=id)
+    request.user.userprofiledata.subscriptions.add(user)
+    return redirect("minstagram:find_friends")
+
+
+@login_required
+def unfollow(request, id=None):
+    user = User.objects.get(id=id)
+    request.user.userprofiledata.subscriptions.remove(user)
+    return redirect("minstagram:see_friends")

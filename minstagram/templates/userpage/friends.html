@@ -1,0 +1,27 @@
+{% extends "loginedin.html" %}
+{% block title %}
+    <title>My subs posts</title>
+{% endblock %}
+{% block content %}
+
+    <!-- Wrapper -->
+        <div id="wrapper">
+            <!-- Intro -->
+            <section id="intro" class="wrapper style1 fullscreen fade-up">
+                <div class="inner">
+                    <h1>Following</h1>
+                    {% for profile in following %}
+                        <div class="box">
+                            <h3><a href="{% url "minstagram:see_user" id=profile.id %}"> {{ profile.first_name }} {{ profile.last_name }}</a></h3>
+                            <h4> age: {{ profile.age }}</h4>
+                            <h4> status: {{ profile.status }}</h4>
+                        </div>
+                        <ul class="actions">
+                                <li><a href="{% url "minstagram:unfollow" id=profile.id %}" class="button scrolly">unfollow</a></li>
+                            </ul>
+                    {% endfor %}
+                </div>
+            </section>
+        </div>
+
+{% endblock %}
