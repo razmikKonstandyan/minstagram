@@ -2626,9 +2626,17 @@
 			width: 100%;
 		}
 
+		.image.profile {
+			display: block;
+			margin: 0 0 2em 0;
+			width: 50%;
+		}
+
 			.image.fit img {
 				width: 100%;
 			}
+
+
 
 		.image.main {
 			display: block;

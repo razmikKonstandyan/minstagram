@@ -1,6 +1,6 @@
 {% extends "loginedin.html" %}
 {% block title %}
-    <title>Friends</title>
+    <title></title>
 {% endblock %}
 {% block content %}
 
@@ -12,12 +12,21 @@
                     <h1>Following</h1>
                     {% for profile in following %}
                         <div class="box">
-                            <h3><a href="{% url "minstagram:see_user" id=profile.id %}"> {{ profile.first_name }} {{ profile.last_name }}</a></h3>
-                            <h4> age: {{ profile.age }}</h4>
-                            <h4> status: {{ profile.status }}</h4>
+                             <div class="row">
+                                 <div class="4u 12u(medium)">
+                                     {% if profile.avatar %}
+                                        <img src="{{ profile.avatar.url }}" class="image fit">
+                                     {% endif %}
+                                 </div>
+                                 <div class="8u 12u(medium)">
+                                    <h3><a href="{% url "minstagram:see_user" id=profile.user.id %}"> {{ profile.user.first_name }} {{ profile.user.last_name }}</a></h3>
+                                    <h4> age: {{ profile.age }}</h4>
+                                    <h4> status: {{ profile.status }}</h4>
+                                 </div>
+                             </div>
                         </div>
                         <ul class="actions">
-                                <li><a href="{% url "minstagram:unfollow" id=profile.id %}" class="button scrolly">unfollow</a></li>
+                                <li><a href="{% url "minstagram:unfollow" id=profile.user.id %}" class="button scrolly">unfollow</a></li>
                             </ul>
                     {% endfor %}
                 </div>

@@ -8,18 +8,27 @@
         <section id="intro" class="wrapper style1 fullscreen fade-up">
 
             <div class="inner">
-
             <!-- Profile!-->
                 <div class="box">
                 {% for profile in profile_data %}
-                    <h2> {{ profile.user.first_name }} {{ profile.user.last_name }}</h2>
-    {#                {% if profile.avatar %}#}
-    {#                    <!--<img id="avatar" src="{{ profile.avatar.url }}"> -->#}
-    {#                {% endif %}#}
-                    <h4> age: {{ profile.age }}</h4>
-                    <h4>status: {{ profile.status }}</h4>
+                    <div class="row">
+                        <div class="2u 12u(medium)">
+                            {% if profile.avatar %}
+                                <img src="{{ profile.avatar.url }}" class="image fit">
+                            {% endif %}
+                        </div>
+                        <div class="10u 12u(medium)">
+                            <h2> {{ profile.user.first_name }} {{ profile.user.last_name }}</h2>
+                            <h4> age: {{ profile.age }}</h4>
+                            <h4>status: {{ profile.status }}</h4>
+                        </div>
+                    </div>
+                    <ul class="actions">
+                        <li><a href="#" class="button scrolly">edit info</a></li>
+                    </ul>
                 {% endfor %}
                 </div>
+
 
                 <!-- Posts !-->
                 <h1>Posts</h1>

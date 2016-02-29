@@ -32,6 +32,7 @@ urlpatterns = [
     url(r'^login/$', login, name='login'),
     url(r'^logout/$', logout, name='logout'),
     url(r'^home/', views.go_home, name='home'),
+    # url(r'^edit-info/', views.edit_info, name='edit_info'),
     url(r'^friends/$', views.see_friends, name='see_friends'),
     url(r'^search/$', views.find_friends, name='find_friends'),
     url(r'^search/follow/(?P<id>\d+)/$', views.follow, name='follow'),

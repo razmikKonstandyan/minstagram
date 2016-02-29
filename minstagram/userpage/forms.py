@@ -1,6 +1,7 @@
 from django import forms
-from .models import UserPageData
-#from django.contrib.auth.models import User
+from .models import UserPageData, UserProfileData
+
+# from django.contrib.auth.models import User
 
 """
 class UserCreationForm(forms.ModelForm):
@@ -27,10 +28,21 @@ class UserCreationForm(forms.ModelForm):
         return user
 """
 
+
 class MakePostForm(forms.ModelForm):
     class Meta:
         model = UserPageData
         fields = [
             "title",
-            "image"
+            "image",
+        ]
+
+
+class EditInfo(forms.ModelForm):
+    class Meta:
+        model = UserProfileData
+        fields = [
+            "status",
+            "avatar",
+            "age",
         ]

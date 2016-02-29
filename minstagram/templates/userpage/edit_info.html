@@ -1,16 +1,15 @@
 {% extends "loginedin.html" %}
 {% block title %}
-    <title>Edit post</title>
+    <title>Edit info</title>
 {% endblock %}
 {% block content %}
     <div id="wrapper">
-
         <!-- Intro -->
         <section id="intro" class="wrapper style1 fullscreen fade-up">
             <div class="inner">
                 <form method="post" enctype="multipart/form-data"> {% csrf_token %}
                     <a>{{ form.as_p }}</a>
-                    <input type="submit" value="update post">
+                    <input type="submit" value="submit">
                 </form>
             </div>
         </section>

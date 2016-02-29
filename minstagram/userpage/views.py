@@ -2,7 +2,7 @@ from django.contrib.auth.models import User
 from django.db.models import Q
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import UserPageData, UserProfileData
-from .forms import MakePostForm
+from .forms import MakePostForm, EditInfo
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib.auth.forms import (
@@ -94,7 +94,8 @@ def delete_post(request, id=None):
 
 @login_required
 def see_friends(request):
-    following = request.user.userprofiledata.subscriptions.all()
+    subscriptions = request.user.userprofiledata.subscriptions.all()
+    following = UserProfileData.objects.filter(user__in=subscriptions)
     return render(request, "userpage/friends.html", {"following": following})
 
 
@@ -138,3 +139,19 @@ def unfollow(request, id=None):
     user = User.objects.get(id=id)
     request.user.userprofiledata.subscriptions.remove(user)
     return redirect("minstagram:see_friends")
+
+
+# def edit_info(request):
+#     user_profile_data = UserProfileData(user=request.user)
+#     form = EditInfo(request.POST or None, request.FILES or None, instance=user_profile_data)
+#     if form.is_valid():
+#         info = form.save(commit=False)
+#         info.save()
+#         posts_list = UserPageData.objects.filter(user=request.user).order_by("-time_created")
+#         context_data = {
+#             "posts_list": posts_list,
+#             "profile_data": user_profile_data,
+#         }
+#         return render(request, "userpage/myposts.html", context_data)
+#
+#     return render(request, "userpage/edit_info.html", {"form": form})
