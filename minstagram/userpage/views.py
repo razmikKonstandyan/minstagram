@@ -31,8 +31,9 @@ def register(request, form=UserCreationForm()):
     if request.method == 'POST':
         data = UserCreationForm(request.POST)
         if data.is_valid():
-            data.save()
-        return HttpResponseRedirect("/registered-ok/")
+            new_user = data.save()
+            UserProfileData.objects.create(user=new_user, status="", avatar="\static\css\images\default.jpeg")
+            return HttpResponseRedirect("/registered-ok/")
     return render(request, "registration/signup.html", {"form": form})
 
 
@@ -141,17 +142,17 @@ def unfollow(request, id=None):
     return redirect("minstagram:see_friends")
 
 
-# def edit_info(request):
-#     user_profile_data = UserProfileData(user=request.user)
-#     form = EditInfo(request.POST or None, request.FILES or None, instance=user_profile_data)
-#     if form.is_valid():
-#         info = form.save(commit=False)
-#         info.save()
-#         posts_list = UserPageData.objects.filter(user=request.user).order_by("-time_created")
-#         context_data = {
-#             "posts_list": posts_list,
-#             "profile_data": user_profile_data,
-#         }
-#         return render(request, "userpage/myposts.html", context_data)
-#
-#     return render(request, "userpage/edit_info.html", {"form": form})
+    # def edit_info(request):
+    #     user_profile_data = UserProfileData(user=request.user)
+    #     form = EditInfo(request.POST or None, request.FILES or None, instance=user_profile_data)
+    #     if form.is_valid():
+    #         info = form.save(commit=False)
+    #         info.save()
+    #         posts_list = UserPageData.objects.filter(user=request.user).order_by("-time_created")
+    #         context_data = {
+    #             "posts_list": posts_list,
+    #             "profile_data": user_profile_data,
+    #         }
+    #         return render(request, "userpage/myposts.html", context_data)
+    #
+    #     return render(request, "userpage/edit_info.html", {"form": form})
