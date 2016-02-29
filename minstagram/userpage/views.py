@@ -1,4 +1,5 @@
 from django.contrib.auth.models import User
+from django.core.urlresolvers import resolve
 from django.db.models import Q
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import UserPageData, UserProfileData
@@ -143,7 +144,7 @@ def follow(request, id=None):
 def unfollow(request, id=None):
     user = User.objects.get(id=id)
     request.user.userprofiledata.subscriptions.remove(user)
-    return redirect("minstagram:see_friends")
+    return redirect("minstagram:find_friends")
 
 
 def edit_info(request):
@@ -159,5 +160,4 @@ def edit_info(request):
             "profile_data": profile_data,
         }
         return render(request, "userpage/myposts.html", context_data)
-
     return render(request, "userpage/edit_info.html", {"form": form})
