@@ -9,6 +9,34 @@
             <!-- Intro -->
             <section id="intro" class="wrapper style1 fullscreen fade-up">
                 <div class="inner">
+                    <!-- Profile info !-->
+                    <div class="box">
+                    {% for profile in profile_data %}
+                        <div class="row">
+                            <div class="2u 12u(medium)">
+                                {% if profile.avatar %}
+                                    <img src="{{ profile.avatar.url }}" class="image fit">
+                                {% endif %}
+                            </div>
+                            <div class="10u 12u(medium)">
+                                <h2> {{ profile.user.first_name }} {{ profile.user.last_name }}</h2>
+                                <h4> age: {{ profile.age }}</h4>
+                                <h4>status: {{ profile.status }}</h4>
+                            </div>
+                        </div>
+                        {% if profile.user not in following %}
+                            <ul class="actions">
+                                <li><a href="{% url "minstagram:follow" id=profile.user.id %}" class="button scrolly">follow</a></li>
+                            </ul>
+                        {% elif profile.user in following %}
+                            <ul class="actions">
+                                <li><a href="{% url "minstagram:unfollow" id=profile.user.id %}" class="button scrolly">unfollow</a></li>
+                            </ul>
+                        {% endif %}
+                    {% endfor %}
+                    </div>
+
+                    <!--Posts info!-->
                     <h1>Posts</h1>
                     {% for post in posts_list %}
                         <h3><a href="{% url "minstagram:see_user_post" user_id=user_identification post_id=post.id %}"> {{ post.title }} </a></h3>

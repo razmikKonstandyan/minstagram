@@ -115,9 +115,13 @@ def find_friends(request):
 def see_user(request, id=None):
     user = get_object_or_404(User, id=id)
     query = UserPageData.objects.filter(user=user).order_by("-time_created")
+    following = request.user.userprofiledata.subscriptions.all()
+    profile_data = UserProfileData.objects.filter(user=user)
     context_data = {
         "posts_list": query,
         "user_identification": id,
+        "profile_data": profile_data,
+        "following": following,
     }
     return render(request, "userpage/someonesposts.html", context_data)
 
