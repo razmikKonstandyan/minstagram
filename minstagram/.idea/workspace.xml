@@ -3,9 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="e34ec114-17c9-4fdc-bfe6-8771cbb601a1" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/userpage/myposts.html" afterPath="$PROJECT_DIR$/templates/userpage/myposts.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/userpage/urls.py" afterPath="$PROJECT_DIR$/userpage/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/userpage/views.py" afterPath="$PROJECT_DIR$/userpage/views.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/userpage/friends.html" afterPath="$PROJECT_DIR$/templates/userpage/friends.html" />
     </list>
     <ignored path="minstagram.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -54,11 +52,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="friends.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="friends.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/userpage/friends.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-9.807693">
-              <caret line="25" column="35" selection-start-line="25" selection-start-column="35" selection-end-line="25" selection-end-column="35" />
+            <state vertical-scroll-proportion="0.10271903">
+              <caret line="2" column="20" selection-start-line="2" selection-start-column="20" selection-end-line="2" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -104,10 +102,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/userpage/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.42987806">
+            <state vertical-scroll-proportion="-4.862069">
               <caret line="154" column="41" selection-start-line="154" selection-start-column="41" selection-end-line="154" selection-end-column="41" />
               <folding>
                 <element signature="e#0#43#0" expanded="true" />
@@ -194,12 +192,12 @@
         <option value="$PROJECT_DIR$/userpage/forms.py" />
         <option value="$PROJECT_DIR$/userpage/models.py" />
         <option value="$PROJECT_DIR$/templates/userpage/search.html" />
-        <option value="$PROJECT_DIR$/templates/userpage/friends.html" />
         <option value="C:/Python27/Lib/site-packages/django/contrib/auth/forms.py" />
         <option value="$PROJECT_DIR$/templates/userpage/registration/signup.html" />
         <option value="$PROJECT_DIR$/userpage/urls.py" />
         <option value="$PROJECT_DIR$/templates/userpage/myposts.html" />
         <option value="$PROJECT_DIR$/userpage/views.py" />
+        <option value="$PROJECT_DIR$/templates/userpage/friends.html" />
       </list>
     </option>
   </component>
@@ -1051,21 +1049,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/userpage/friends.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.807693">
-          <caret line="25" column="35" selection-start-line="25" selection-start-column="35" selection-end-line="25" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/userpage/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.42987806">
+        <state vertical-scroll-proportion="-4.862069">
           <caret line="154" column="41" selection-start-line="154" selection-start-column="41" selection-end-line="154" selection-end-column="41" />
           <folding>
             <element signature="e#0#43#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/userpage/friends.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.10271903">
+          <caret line="2" column="20" selection-start-line="2" selection-start-column="20" selection-end-line="2" selection-end-column="20" />
+          <folding />
         </state>
       </provider>
     </entry>
