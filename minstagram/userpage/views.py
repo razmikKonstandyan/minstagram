@@ -137,14 +137,14 @@ def see_user_post(request, user_id=None, post_id=None):
 def follow(request, id=None):
     user = User.objects.get(id=id)
     request.user.userprofiledata.subscriptions.add(user)
-    return redirect("minstagram:find_friends")
+    return redirect(request.META["HTTP_REFERER"])
 
 
 @login_required
 def unfollow(request, id=None):
     user = User.objects.get(id=id)
     request.user.userprofiledata.subscriptions.remove(user)
-    return redirect("minstagram:find_friends")
+    return redirect(request.META["HTTP_REFERER"])
 
 
 @login_required
