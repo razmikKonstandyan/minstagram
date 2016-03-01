@@ -3,13 +3,13 @@ from django.core.urlresolvers import resolve
 from django.db.models import Q
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import UserPageData, UserProfileData
-from .forms import MakePostForm, EditInfo
+from .forms import MakePostForm, EditInfo, UserRegistrationForm
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib.auth.forms import (
     AuthenticationForm, PasswordChangeForm, PasswordResetForm, SetPasswordForm, UserCreationForm
 )
-
+from django.contrib.auth.forms import UserCreationForm
 
 # create my first view
 def go_home(request):
@@ -28,9 +28,9 @@ def regok(request):
     return render(request, "registration/OK.html")
 
 
-def register(request, form=UserCreationForm()):
+def register(request, form=UserRegistrationForm()):
     if request.method == 'POST':
-        data = UserCreationForm(request.POST)
+        data = UserRegistrationForm(request.POST)
         if data.is_valid():
             new_user = data.save()
             UserProfileData.objects.create(user=new_user, status="", avatar="\static\css\images\default.jpeg")

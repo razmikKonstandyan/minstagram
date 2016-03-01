@@ -1,4 +1,7 @@
 from django import forms
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
+
 from .models import UserPageData, UserProfileData
 
 # from django.contrib.auth.models import User
@@ -46,3 +49,9 @@ class EditInfo(forms.ModelForm):
             "avatar",
             "age",
         ]
+
+
+class UserRegistrationForm(UserCreationForm):
+    class Meta:
+        model = User
+        fields = ("username", "first_name", "last_name")
