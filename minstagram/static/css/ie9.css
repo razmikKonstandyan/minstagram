@@ -7,7 +7,7 @@
 /* Type */
 
 	h1.major:after {
-		background: #b74e91;
+		background: #fafafa;
 	}
 
 /* Wrapper */
@@ -68,7 +68,7 @@
 /* Sidebar */
 
 	#sidebar nav a:after {
-		background-color: #b74e91;
+		background-color: #fafafa;
 	}
 
 /* Header */

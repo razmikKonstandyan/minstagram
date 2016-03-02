@@ -8,16 +8,15 @@
 
 /* Reset */
 
-	html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+	html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, menu, nav, output, ruby, section, summary, time, mark, audio, video {
 		margin: 0;
 		padding: 0;
 		border: 0;
-		font-size: 100%;
 		font: inherit;
 		vertical-align: baseline;
 	}
 
-	article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+	article, aside, details, figcaption, figure, footer, header, menu, nav, section {
 		display: block;
 	}
 
@@ -34,7 +33,6 @@
 	}
 
 	blockquote:before, blockquote:after, q:before, q:after {
-		content: '';
 		content: none;
 	}
 
@@ -1622,7 +1620,7 @@
 	}
 
 	body {
-		background: #312450;
+		background: #fafafa;
 	}
 
 		body.is-loading *, body.is-loading *:before, body.is-loading *:after {
@@ -1639,7 +1637,7 @@
 /* Type */
 
 	body, input, select, textarea {
-		color: rgba(255, 255, 255, 0.55);
+		color: #000000;
 		font-family: Arial, Helvetica, sans-serif;
 		font-size: 16.5pt;
 		font-weight: normal;
@@ -1676,13 +1674,13 @@
 		-ms-transition: color 0.2s ease, border-bottom-color 0.2s ease;
 		transition: color 0.2s ease, border-bottom-color 0.2s ease;
 		border-bottom: dotted 1px rgba(255, 255, 255, 0.35);
-		color: inherit;
+		color: #125688;
 		text-decoration: none;
 	}
 
 		a:hover {
 			border-bottom-color: transparent;
-			color: #ffffff;
+			color: #0D3C5F;
 		}
 
 	strong, b {
@@ -1699,14 +1697,14 @@
 	}
 
 	h1, h2, h3, h4, h5, h6 {
-		color: #ffffff;
+		color: #000000;
 		font-weight: bold;
 		line-height: 1.5;
 		margin: 0 0 0.5em 0;
 	}
 
 		h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
-			color: inherit;
+			color: #125688;
 			text-decoration: none;
 		}
 
@@ -1831,8 +1829,8 @@
 
 	hr {
 		border: 0;
-		border-bottom: solid 1px rgba(255, 255, 255, 0.15);
-		margin: 2em 0;
+		border-bottom: solid 1px rgba(0, 0, 0, 1);
+		margin: 1em 0;
 	}
 
 		hr.major {
@@ -1889,9 +1887,9 @@
 		transition: border-color 0.2s ease;
 		background-color: transparent;
 		border: solid 1px !important;
-		border-color: rgba(255, 255, 255, 0.15) !important;
+		border-color: #818488 !important;
 		border-radius: 3em;
-		color: #ffffff !important;
+		color: #818488 !important;
 		cursor: pointer;
 		display: inline-block;
 		font-size: 0.6em;
@@ -1976,7 +1974,7 @@
 		button.special,
 		.button.special {
 			background-color: #ffffff;
-			color: #312450 !important;
+			color: #fafafa !important;
 		}
 
 			input[type="submit"].special:after,
@@ -2009,7 +2007,8 @@
 		input[type="button"]:hover,
 		button:hover,
 		.button:hover {
-			border-color: rgba(255, 255, 255, 0.55) !important;
+			border-color: rgba(75, 79, 84, 1.0) !important;
+			color: rgba(75, 79, 84, 1.0) !important;
 		}
 
 			input[type="submit"]:hover:after,
@@ -2029,7 +2028,7 @@
 			input[type="button"]:hover:active,
 			button:hover:active,
 			.button:hover:active {
-				border-color: #ffffff !important;
+				border-color: #818488 !important;
 			}
 
 				input[type="submit"]:hover:active:after,
@@ -2323,7 +2322,7 @@
 		}
 
 	label {
-		color: #ffffff;
+		color: #000000;
 		font-weight: bold;
 		line-height: 1.5;
 		margin: 0 0 0.7em 0;
@@ -2343,9 +2342,8 @@
 		appearance: none;
 		background: rgba(255, 255, 255, 0.05);
 		border-radius: 0.25em;
-		border: none;
-		border: solid 1px rgba(255, 255, 255, 0.15);
-		color: inherit;
+		border: solid 1px #000000;
+		color: #000000;
 		display: block;
 		outline: 0;
 		padding: 0 1em;
@@ -2368,8 +2366,8 @@
 		input[type="tel"]:focus,
 		select:focus,
 		textarea:focus {
-			border-color: #ffffff;
-			box-shadow: 0 0 0 1px #ffffff;
+			border-color: #000000;
+			box-shadow: 0 0 0 1px #000000;
 		}
 
 	.select-wrapper {
@@ -2406,7 +2404,7 @@
 		}
 
 	select option {
-		background-color: #312450;
+		background-color: #fafafa;
 		color: #ffffff;
 	}
 
@@ -2552,7 +2550,7 @@
 			display: block;
 			background: #ffffff;
 			border-radius: 100%;
-			color: #312450;
+			color: #fafafa;
 			text-align: center;
 			line-height: 2.5em;
 			margin: 0 0 1.3em 0;
@@ -3259,31 +3257,31 @@
 			}
 
 		.wrapper.alt {
-			background-color: #261c3e;
+			background-color: #fafafa;
 		}
 
 		.wrapper.style1 {
-			background-color: #9661FF;
+			background-color: #fafafa;
 		}
 
 		.wrapper.style1-alt {
-			background-color: #493382;
+			background-color: #fafafa;
 		}
 
 		.wrapper.style2 {
-			background-color: #5052b5;
+			background-color: #fafafa;
 		}
 
 		.wrapper.style2-alt {
-			background-color: #3e4094;
+			background-color: #fafafa;
 		}
 
 		.wrapper.style3 {
-			background-color: #b74e91;
+			background-color: #fafafa;
 		}
 
 		.wrapper.style3-alt {
-			background-color: #953d75;
+			background-color: #fafafa;
 		}
 
 		.wrapper.fullscreen {
@@ -3390,14 +3388,14 @@
 		display: -webkit-flex;
 		display: -ms-flex;
 		display: flex;
-		background-color: #5e42a6;
+		background-color: #ffffff;
 		cursor: default;
 		padding: 1.75em 2em;
 	}
 
 		#header > .title {
 			border: 0;
-			color: #ffffff;
+			color: #125688;
 			display: block;
 			font-size: 1.25em;
 			font-weight: bold;
@@ -3429,7 +3427,7 @@
 
 					#header > nav > ul > li a {
 						border: 0;
-						color: rgba(255, 255, 255, 0.35);
+						color: #125688;
 						display: inline-block;
 						font-size: 0.6em;
 						font-weight: bold;
@@ -3438,11 +3436,11 @@
 					}
 
 						#header > nav > ul > li a:hover {
-							color: rgba(255, 255, 255, 0.55);
+							color: #4b4f54;
 						}
 
 						#header > nav > ul > li a.active {
-							color: #ffffff;
+							color: #125688;
 						}
 
 		@media screen and (max-width: 736px) {
@@ -3533,7 +3531,7 @@
 
 	#footer > .inner .menu {
 		font-size: 0.8em;
-		color: rgba(255, 255, 255, 0.15);
+		color: rgba(0, 0, 0, 0.5);
 	}
 
 	#header + #wrapper + #footer > .inner {
@@ -3544,7 +3542,7 @@
 
 	#sidebar {
 		padding: 2.5em 2.5em 0.5em 2.5em ;
-		background: #312450;
+		background: #fafafa;
 		cursor: default;
 		height: 100vh;
 		left: 0;

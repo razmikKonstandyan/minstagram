@@ -31,6 +31,7 @@ urlpatterns = [
     url(r'^registered-ok/$', views.regok, name='regok'),
     url(r'^login/$', login, name='login'),
     url(r'^logout/$', logout, name='logout'),
+    url(r'^$', views.go_home, name='index'),
     url(r'^home/', views.go_home, name='home'),
     url(r'^edit-info/', views.edit_info, name='edit_info'),
     url(r'^friends/$', views.see_friends, name='see_friends'),

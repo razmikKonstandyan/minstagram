@@ -23,6 +23,7 @@
                             <h4>status: {{ profile.status }}</h4>
                         </div>
                     </div>
+                    <hr>
                     <ul class="actions">
                         <li><a href="{% url "minstagram:edit_info" %}" class="button scrolly">edit info</a></li>
                     </ul>
@@ -33,7 +34,7 @@
                 <!-- Posts !-->
                 <h1>Posts</h1>
                 {% for post in posts_list %}
-                    <h3><a href="{% url "minstagram:see_post" id=post.id %}"> {{ post.title }} </a></h3>
+                    <h3><a href="{% url "minstagram:see_post" id=post.id %}"> {{ post.title }} | {{ post.time_created }}</a></h3>
                     {% if post.image %}
                         <span class="image fit"><a href="{% url "minstagram:see_post" id=post.id %}">
                             <img src="{{ post.image.url }}"></a> </span>
@@ -45,7 +46,6 @@
                     <!-- <ul class="actions">
                         <li><a href="#one" class="button scrolly">Like</a></li>
                     </ul>-->
-                    <h4>{{ post.time_created }}</h4>
                     <hr>
                 {% endfor %}
             </div>
