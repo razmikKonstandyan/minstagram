@@ -38,7 +38,7 @@ def regok(request):
     return render(request, "registration/OK.html")
 
 
-def register(request, form=UserRegistrationForm()):
+def register(request):
     """Method allows a new user to sign up.
 
     Args:
@@ -48,11 +48,14 @@ def register(request, form=UserRegistrationForm()):
         if the form is not valid and does redirect to regok else.
     """
     if request.method == 'POST':
-        data = UserRegistrationForm(request.POST)
-        if data.is_valid():
-            new_user = data.save()
+        form = UserRegistrationForm(request.POST)
+        if form.is_valid():
+            new_user = form.save(commit=False)
+            new_user.save()
             UserProfileData.objects.create(user=new_user, status="", avatar="\static\css\images\default.jpeg")
             return HttpResponseRedirect("/registered-ok/")
+    else:
+        form = UserRegistrationForm()
     return render(request, "registration/signup.html", {"form": form})
 
 
